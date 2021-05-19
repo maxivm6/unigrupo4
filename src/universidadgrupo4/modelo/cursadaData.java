@@ -68,10 +68,7 @@ public class cursadaData {
          return cursadas;     
         
     }*/
-    List<Cursada> obtenerCursadasXAlumno(int d){
-            String sql = "SELECT * FROM cursada WHERE idAlumno=?";
-        return null;
-    }
+   
     
     Alumno buscarAlumno(int id) {
         Alumno alumno = null;
@@ -99,7 +96,7 @@ public class cursadaData {
         return alumno;
     }    
     
-    Materia buscarMateria(int id){
+    Materia buscarMateria(int id){                                          //
         Materia materia = null;
         ArrayList<Materia> materias = new ArrayList();
         
@@ -124,12 +121,20 @@ public class cursadaData {
         for (Materia item:materias){
             if(item.getIdMateria()==id){
                 materia = item;
+               
             }
         }
-        return materia;
         
+        return materia;
     }       
+    
+    
     /*
+     List<Cursada> obtenerCursadasXAlumno(int d){
+            String sql = "SELECT * FROM cursada WHERE idAlumno=?";
+        return null;
+    }
+    
     List <Materia> obtenerMateriasCursadas(int id){
         String sql = "SELECT (materia.idMateria,maeria.nombre,maeria.año,materia.estado) FROM inscripion JOIN materia ON idMateria WHERE idAlumno=?";  
         return null;
