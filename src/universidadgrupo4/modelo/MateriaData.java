@@ -62,10 +62,11 @@ public class MateriaData {
            JOptionPane.showMessageDialog(null,"error de conexion");
         } 
      }
-      public void actualizarMateria(Materia materia){
+      public void actualizarMateria(Materia materia,int id){
         try{
-            String sql="UPDATE  materia SET  nombre=?, anio, estado=? WHERE idMateria=?";
+            String sql="UPDATE materia SET nombre=?, anio, estado=? WHERE idMateria=?";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, id);
             
             ps.setString(1, materia.getNombreMateria());
             ps.setInt(2,materia.getAnio());
@@ -77,9 +78,8 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null,"error de conexion");
         }
     }
-      public List <Materia> buscarMateria(int id){
-           Materia materia; 
-           ArrayList<Materia> materias = new ArrayList<>();
+      public Materia buscarMateria(int id){
+           Materia materia=null; 
             
           try{ 
             String sql="SELECT * FROM  materia WHERE idMateria=?";
@@ -96,7 +96,6 @@ public class MateriaData {
               materia.setIdMateria((rs.getInt("idMateria")));
               materia.setEstado(rs.getBoolean("estado"));
               materia.setAnio(rs.getInt("año"));
-              materias.add(materia);
             }
                 
             
@@ -104,7 +103,7 @@ public class MateriaData {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null,"error de conexion");
         }
-         return materias; 
+         return materia; 
     }
           
 }

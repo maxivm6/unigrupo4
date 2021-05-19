@@ -6,6 +6,7 @@ protected Alumno alumno;
 protected Materia materia;
 protected double nota;
 
+
     public Cursada(int idCursada, Alumno alumno, Materia materia, double nota) {
         this.idCursada = idCursada;
         this.alumno = alumno;
@@ -38,16 +39,16 @@ protected double nota;
         this.idCursada = idCursada;
     }
 
-    public int getIdAlumno() {
-        return alumno.getIdAlumno();
+    public Alumno getAlumno() {
+        return alumno;
     }
 
     public void setIdAlumno(Alumno idAlumno) {
         this.alumno = idAlumno;
     }
 
-    public int getIdMateria() {
-        return materia.getIdMateria();
+    public Materia getMateria() {
+        return materia;
     }
 
     public void setIdMateria(Materia idMateria) {
@@ -60,6 +61,11 @@ protected double nota;
 
     public void setNota(int nota) {
         this.nota = nota;
+    }
+
+    @Override
+    public String toString() {
+        return "Cursada{" + "idCursada=" + idCursada + ", alumno=" + alumno + ", materia=" + materia + ", nota=" + nota + '}';
     }
     
 }

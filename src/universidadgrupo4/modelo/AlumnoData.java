@@ -29,14 +29,14 @@ public class AlumnoData {
         }
     }
     
-    public List<Alumno>obtenerAlumno(){
-        List<Alumno>alumnos = new ArrayList<>();
+    public Alumno obtenerAlumno(int id){
+        Alumno alumno=null;
         try{
-            String sql = "SELECT * FROM alumno";
+            String sql = "SELECT * FROM alumno WHERE idAlumno=?";
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
             
             ResultSet rs=ps.executeQuery();
-            Alumno alumno;
             
             while(rs.next()){
                 alumno = new Alumno();
@@ -44,13 +44,12 @@ public class AlumnoData {
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNac(rs.getDate("fechNac").toLocalDate());
                 alumno.setEstado(rs.getBoolean("estado"));
-                alumnos.add(alumno);
             }
             ps.close();
         }catch(SQLException ex){
            JOptionPane.showMessageDialog(null,"error de conexion");
         }
-        return alumnos;
+        return alumno;
     }
     
     public void borrarAlumno(int id){
@@ -67,10 +66,11 @@ public class AlumnoData {
         }
     }
     
-    public void actualizarAlumno(Alumno alumno){
+    public void actualizarAlumno(Alumno alumno, int id){
         try{
-            String sql="UPDATE  alumno SET legajo=?, nombre=?, apellido=?, estado=?, fechNac=? WHERE idAlumno=?";
+            String sql="UPDATE alumno SET legajo=?, nombre=?, apellido=?, estado=?, fechNac=? WHERE idAlumno=?";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            
             ps.setInt(1, alumno.getLegajo());
             ps.setString(2, alumno.getNombre());
             ps.setDate(3, Date.valueOf(alumno.getFechaNac()));

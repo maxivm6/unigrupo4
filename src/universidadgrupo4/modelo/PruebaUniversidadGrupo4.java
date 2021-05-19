@@ -27,21 +27,25 @@ public class PruebaUniversidadGrupo4 {
             JOptionPane.showMessageDialog(null, "Error de driver");
         }
         LocalDate fecha=LocalDate.of(2020,2,12);
-        Alumno a= new Alumno(4483713,"Mario","Sosa",fecha,true);
-        AlumnoData aD=new AlumnoData(conexion);
-        //aD.guardarAlumno(a);
-        //List<Alumno> alumnos = aD.obtenerAlumno();
-        //System.out.println(alumnos.toString());
         
         
-        Materia m=new Materia ("LAB I",1,true);
+        Alumno b= new Alumno(488,"Godoy","Marianela",fecha,true);
+        AlumnoData aD=new AlumnoData(conexion);                
+        
+//        Materia m1=new Materia ("LAB II",3,true);
+        Materia m2=new Materia ("Ingles II",1,false);
+//        Materia m3=new Materia ("Matematicas I",1,true);
         MateriaData am=new MateriaData(conexion);
-//        System.out.println(am.buscarMateria(6));
 
-        Cursada c = new Cursada(a,m,8);
-        cursadaData cd = new cursadaData(conexion);
-        //cd.guardarMaterias(c);
-        System.out.println(cd.buscarMateria(5));
+        
+//        Cursada c = new Cursada(b,m2,8);
+//        cursadaData cd = new cursadaData(conexion);
+//        
+        
+        am.actualizarMateria(m2, 23);
+        
+        
+        //System.out.println(aD.borrarAlumno(26));
         
         
     }

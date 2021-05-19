@@ -79,7 +79,7 @@ public class Alumno {
         return fechNac;
     }
     public String toString(){
-        return idAlumno+" "+fechNac+""+estado;
+        return nombre + " " + apellido + " " +idAlumno + " " + fechNac + " " + estado;
     }
 
     
