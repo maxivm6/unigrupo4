@@ -1,17 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package universidadgrupo4.modelo;
+
+package universidadgrupo4.control;
 
 import java.sql.*;
-import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.time.LocalDate;
 import java.sql.Date;
+import universidadgrupo4.modelos.Alumno;
+import universidadgrupo4.modelos.Conexion;
 
 
 
@@ -68,13 +64,16 @@ public class AlumnoData {
     
     public void actualizarAlumno(Alumno alumno, int id){
         try{
-            String sql="UPDATE alumno SET legajo=?, nombre=?, apellido=?, estado=?, fechNac=? WHERE idAlumno=?";
-            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            String sql = "UPDATE alumno SET legajoDni=?, nombre=?, apellido=?, estado=?, fechNac=? WHERE idAlumno=?";
+            PreparedStatement ps = con.prepareStatement(sql);
             
             ps.setInt(1, alumno.getLegajo());
             ps.setString(2, alumno.getNombre());
-            ps.setDate(3, Date.valueOf(alumno.getFechaNac()));
+            ps.setString(3, alumno.getApellido());
             ps.setBoolean(4, alumno.getEstado());
+            ps.setDate(5, Date.valueOf(alumno.getFechNac()));
+            ps.setInt(6,id);
+            
             ps.executeUpdate();
             
             ps.close();
@@ -91,7 +90,7 @@ public class AlumnoData {
             ps.setString(3, alumno.getNombre());
             ps.setString(2, alumno.getApellido());
             ps.setBoolean(4, alumno.getEstado());
-            ps.setDate(5, Date.valueOf(alumno.getFechaNac()));
+            ps.setDate(5, Date.valueOf(alumno.getFechNac()));
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if(rs.next()){

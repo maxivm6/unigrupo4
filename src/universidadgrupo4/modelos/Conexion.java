@@ -1,4 +1,4 @@
-package universidadgrupo4.modelo;
+package universidadgrupo4.modelos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

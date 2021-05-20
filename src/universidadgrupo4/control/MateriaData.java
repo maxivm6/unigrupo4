@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package universidadgrupo4.modelo;
+package universidadgrupo4.control;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +15,8 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import universidadgrupo4.modelos.Conexion;
+import universidadgrupo4.modelos.Materia;
 
 /**
  *
@@ -64,18 +66,18 @@ public class MateriaData {
      }
       public void actualizarMateria(Materia materia,int id){
         try{
-            String sql="UPDATE materia SET nombre=?, anio, estado=? WHERE idMateria=?";
-            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, id);
+            String sql="UPDATE materia SET nombre=?, año=?, estado=? WHERE idMateria=?";
+            PreparedStatement ps=con.prepareStatement(sql);
             
             ps.setString(1, materia.getNombreMateria());
-            ps.setInt(2,materia.getAnio());
+            ps.setInt(2, materia.getAnio());
             ps.setBoolean(3, materia.getEstado());
+            ps.setInt(4,id);
             ps.executeUpdate();
             
             ps.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"error de conexion");
+            JOptionPane.showMessageDialog(null,"error al actualizar");
         }
     }
       public Materia buscarMateria(int id){

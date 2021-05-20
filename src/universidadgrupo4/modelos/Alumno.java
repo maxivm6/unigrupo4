@@ -1,4 +1,4 @@
-package universidadgrupo4.modelo;
+package universidadgrupo4.modelos;
 
 import java.time.LocalDate;
 
@@ -23,7 +23,7 @@ public class Alumno {
     }
 
     public Alumno(int legajo,  String nombre, String apellido, LocalDate fechNac, boolean estado) {
-         this.legajo = legajo;
+        this.legajo = legajo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechNac = fechNac;
@@ -75,7 +75,7 @@ public class Alumno {
         this.estado = estado;
     }
 
-    public LocalDate getFechaNac() {
+    public LocalDate getFechNac() {
         return fechNac;
     }
     public String toString(){

@@ -1,4 +1,4 @@
-package universidadgrupo4.modelo;
+package universidadgrupo4.modelos;
 
 public class Materia {
     protected int idMateria;

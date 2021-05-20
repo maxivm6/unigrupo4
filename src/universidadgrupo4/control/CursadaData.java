@@ -1,4 +1,4 @@
-package universidadgrupo4.modelo;
+package universidadgrupo4.control;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,14 +8,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import universidadgrupo4.modelos.Alumno;
+import universidadgrupo4.modelos.Conexion;
+import universidadgrupo4.modelos.Cursada;
+import universidadgrupo4.modelos.Materia;
 
 
-public class cursadaData {
+public class CursadaData {
 
     private Connection con;
     private Conexion aux;
     
-    public cursadaData(Conexion conexion) {
+    public CursadaData(Conexion conexion) {
         try{
             con = conexion.getConexion();
             this.aux=conexion;
@@ -24,7 +28,7 @@ public class cursadaData {
         }
     }
     
-    void guardarCursada(Cursada cursada){
+    public void guardarCursada(Cursada cursada){
             
         try {
             String sql = "INSERT INTO cursada (idMateria,nota,idAlumno) VALUES (?,?,?)";
@@ -48,7 +52,7 @@ public class cursadaData {
             
     }
     
-    List<Cursada> obtenerCursadas(){
+    public List<Cursada> obtenerCursadas(){
            Cursada cursada; 
            ArrayList<Cursada> cursadas = new ArrayList<>();
             
@@ -92,7 +96,7 @@ public class cursadaData {
     
     
     
-     List<Materia> obtenerCursadasXAlumno(int idAlumno){ 
+    public List<Materia> obtenerCursadasXAlumno(int idAlumno){ 
            ArrayList<Materia> materias = new ArrayList<>();
            Materia materia; 
         try{ 
@@ -122,7 +126,7 @@ public class cursadaData {
     
     
     
-     List <Alumno> obtenerAlumnosXMateria(int idMateria){
+    public List <Alumno> obtenerAlumnosXMateria(int idMateria){
             ArrayList<Alumno> alumnos = new ArrayList<>();
             Alumno alumno; 
         try{ 
@@ -154,7 +158,7 @@ public class cursadaData {
     
      
      
-     List <Materia> obtenerMateriasNOCursadas(int idAlumno){
+    public List <Materia> obtenerMateriasNOCursadas(int idAlumno){
         ArrayList<Materia> materias = new ArrayList(); 
         try{    
             String sql = "SELECT * FROM materia WHERE idMateria NOT IN (SELECT materia.idMateria FROM cursada WHERE idAlumno = ?)";  
@@ -181,13 +185,34 @@ public class cursadaData {
          return materias;  
     }
     
-     /*
-    void borrarCursadaDeUnaMateriaDeunAlumno (int idAlumno,int idMateria){
-        String sql = "DELETE FROM cursada WHERE idAlumno=? AND idMateria=?";
+     
+    public void borrarCursadaMateriaDeunAlumno (int idAlumno,int idMateria){
+        try{
+            String sql = "DELETE FROM cursada WHERE idAlumno=? AND idMateria=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ps.setInt(2, idMateria);
+            ps.executeUpdate();
+            ps.close();
+        }catch (SQLException ex) {
+              JOptionPane.showMessageDialog(null, "Error al Borrar: "+ex.getMessage());
+        }
     }
-    void actualizarNotaCursada(int idAlumno, int idMateria, int nota){
-        String sql = "UPDATE cursada SET nota=? FROM cursada WHERE idAlumno=? AND idMateria=?";
+    
+    public void actualizarNotaCursada(int idAlumno, int idMateria,float nota){
+        try{
+            String sql = "UPDATE cursada SET nota=? WHERE idAlumno=? AND idMateria=?;";
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(3,idMateria);
+            ps.setFloat(1, nota);          
+            ps.setInt(2, idAlumno);
+            ps.executeUpdate();
+            ps.close();
+        }catch (SQLException ex) {
+              JOptionPane.showMessageDialog(null, "Error al actualizar: "+ex.getMessage());
+        }
     }
-*/
+
 
 }
