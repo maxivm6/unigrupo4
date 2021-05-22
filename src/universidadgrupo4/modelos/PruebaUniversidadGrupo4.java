@@ -37,7 +37,7 @@ public class PruebaUniversidadGrupo4 {
         aD.actualizarAlumno(b, 26);
         
         //aD.guardarAlumno(b);
-        Materia m1=new Materia ("LAB II",3,true);
+        Materia m1=new Materia ("LAB II",3,false);
         Materia m2=new Materia ("Ingles II",1,false);
         Materia m3=new Materia ("Matematicas I",1,true);
         MateriaData am=new MateriaData(conexion);
