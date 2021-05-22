@@ -32,16 +32,20 @@ public class PruebaUniversidadGrupo4 {
         
         
         Alumno b= new Alumno(28043266,"Jorge","Berro",fecha,false);
+        Alumno j= new Alumno(28043261,"Daniel","Richieri",fecha,true);
         AlumnoData aD=new AlumnoData(conexion);
         
         aD.actualizarAlumno(b, 26);
+        aD.actualizarAlumno(j, 25);
         
         //aD.guardarAlumno(b);
         Materia m1=new Materia ("LAB II",3,false);
         Materia m2=new Materia ("Ingles II",1,false);
         Materia m3=new Materia ("Matematicas I",1,true);
+        Materia m4=new Materia ("Eda I",1,true);
         MateriaData am=new MateriaData(conexion);
         am.actualizarMateria(m3, 22);
+        am.actualizarMateria(m4, 22);
 
         
         //Cursada c = new Cursada(b,m3,8);
