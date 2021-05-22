@@ -31,8 +31,8 @@ public class PruebaUniversidadGrupo4 {
         LocalDate fecha=LocalDate.of(2020,2,12);
         
         
-        Alumno b= new Alumno(28043266,"Jorge","Berro",fecha,false);
-        Alumno j= new Alumno(28043288,"Daniel","Richieri",fecha,true);
+        Alumno b= new Alumno(28043266,"Jorge","Berro",fecha,true);
+        Alumno j= new Alumno(28043288,"Daniel","Richieri",fecha,false);
         AlumnoData aD=new AlumnoData(conexion);
         
         aD.actualizarAlumno(b, 26);
