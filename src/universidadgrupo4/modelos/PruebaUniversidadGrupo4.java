@@ -31,10 +31,10 @@ public class PruebaUniversidadGrupo4 {
         LocalDate fecha=LocalDate.of(2020,2,12);
         
         
-        Alumno b= new Alumno(4823,"Jorge","Torres",fecha,true);
+        Alumno b= new Alumno(4823,"Jorge","Torres",fecha,false);
         AlumnoData aD=new AlumnoData(conexion);
         
-        //aD.actualizarAlumno(b, 26);
+        aD.actualizarAlumno(b, 26);
         
         //aD.guardarAlumno(b);
         Materia m1=new Materia ("LAB II",3,true);
