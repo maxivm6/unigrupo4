@@ -32,7 +32,7 @@ public class PruebaUniversidadGrupo4 {
         
         
         Alumno b= new Alumno(28043266,"Jorge","Berro",fecha,true);
-        Alumno j= new Alumno(28043288,"Daniel","Richieri",fecha,true);
+        Alumno j= new Alumno(28143288,"Daniel","Richieri",fecha,true);
         AlumnoData aD=new AlumnoData(conexion);
         
         aD.actualizarAlumno(b, 26);
