@@ -61,7 +61,7 @@ public class MateriaData {
             
             ps.close();
         }catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"error de conexion");
+           JOptionPane.showMessageDialog(null,"error al cargar materia");
         } 
      }
       public void actualizarMateria(Materia materia,int id){
