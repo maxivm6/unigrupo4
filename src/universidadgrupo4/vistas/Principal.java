@@ -5,6 +5,8 @@
  */
 package universidadgrupo4.vistas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Maxi
@@ -29,10 +31,10 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        Principal = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jbSalir = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -47,42 +49,68 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        Principal.setMaximumSize(new java.awt.Dimension(71, 32769));
+
+        javax.swing.GroupLayout PrincipalLayout = new javax.swing.GroupLayout(Principal);
+        Principal.setLayout(PrincipalLayout);
+        PrincipalLayout.setHorizontalGroup(
+            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1266, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 793, Short.MAX_VALUE)
+        PrincipalLayout.setVerticalGroup(
+            PrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 779, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Archivo");
+        jMenuBar1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
+        jMenuBar1.setMaximumSize(new java.awt.Dimension(71, 53));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(53, 45));
 
-        jMenuItem8.setText("Salir");
-        jMenu1.add(jMenuItem8);
+        jMenu1.setText("Archivo");
+        jMenu1.setFocusable(false);
+        jMenu1.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+
+        jbSalir.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jbSalir);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Operaciones");
+        jMenu2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
 
+        jMenuItem3.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jMenuItem3.setText("Materias");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
+        jMenuItem4.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jMenuItem4.setText("Alumnos");
         jMenu2.add(jMenuItem4);
 
+        jMenuItem5.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jMenuItem5.setText("Cargar nota");
         jMenu2.add(jMenuItem5);
 
+        jMenuItem6.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jMenuItem6.setText("Inscripciones");
         jMenu2.add(jMenuItem6);
 
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Consultas");
+        jMenu3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
 
+        jMenuItem7.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jMenuItem7.setText("Listado alumnos por materia");
         jMenu3.add(jMenuItem7);
 
@@ -94,15 +122,31 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(Principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(Principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea salir?", "Salir", 2, 3);
+        if (opcion==0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Principal.removeAll();
+        Principal.repaint();
+        ViewMateria nuevo = new ViewMateria();
+        nuevo.setVisible(true);
+        Principal.add(nuevo);
+        Principal.moveToFront(nuevo);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,7 +184,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane Principal;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -152,6 +196,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jbSalir;
     // End of variables declaration//GEN-END:variables
 }
