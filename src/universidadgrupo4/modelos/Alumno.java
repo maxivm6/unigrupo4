@@ -79,7 +79,7 @@ public class Alumno {
         return fechNac;
     }
     public String toString(){
-        return idAlumno + "-" + nombre;
+        return "ID "+ idAlumno + "-" + nombre + " " + apellido;
     }
 
     

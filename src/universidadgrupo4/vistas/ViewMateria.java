@@ -277,8 +277,6 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         boolean val=false;
         MateriaData nuevo = new MateriaData(con);
         
-        
-        
         try {
             nombre = jtNombre.getText();
             año = Integer.parseInt(jtAño.getText()) ;
@@ -288,17 +286,18 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         if (nombre.isEmpty()||val==false){
            JOptionPane.showMessageDialog(this, "Campo incorrecto");  
         }else{
-            ArrayList materias = nuevo.obtenerMaterias(id);
-            if (!materias.isEmpty()) {
+            if (nuevo.buscarMateria(id)==null) {
+                  JOptionPane.showMessageDialog(this, "No se encuentra la materia");
+            }else{
+                
                 Materia mat = new Materia(id,nombre,año,true);
                 int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea modificar:\n " 
                 + nuevo.buscarMateria(id).toString(), "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
                     if (opcion==0) {
                         nuevo.actualizarMateria(mat, id);
                         JOptionPane.showMessageDialog(this, "Se ha modificado la materia");
-                    }  
-            }else{
-                JOptionPane.showMessageDialog(this, "No se encuentra la materia");
+                    }
+                
             }
         }
         

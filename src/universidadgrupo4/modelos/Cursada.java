@@ -65,7 +65,7 @@ protected float nota;
 
     @Override
     public String toString() {
-        return "Cursada{" + "idCursada=" + idCursada + ", alumno=" + alumno + ", materia=" + materia + ", nota=" + nota + '}';
+        return "idCursada=" + idCursada + ", alumno=" + alumno + ", materia=" + materia + ", nota=" + nota;
     }
     
 }

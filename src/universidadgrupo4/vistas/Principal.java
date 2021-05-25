@@ -47,6 +47,7 @@ public class Principal extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -104,6 +105,11 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem5.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jMenuItem5.setText("Cargar nota");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
@@ -117,7 +123,21 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem7.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jMenuItem7.setText("Listado alumnos por materia");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem7);
+
+        jMenuItem8.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jMenuItem8.setText("Listado materias por alumno");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem8);
 
         jMenuBar1.add(jMenu3);
 
@@ -152,6 +172,33 @@ public class Principal extends javax.swing.JFrame {
         Principal.add(nuevo);
         Principal.moveToFront(nuevo);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        Principal.removeAll();
+        Principal.repaint();
+        ViewAlumnoXMat nuevo = new ViewAlumnoXMat(conexion);
+        nuevo.setVisible(true);
+        Principal.add(nuevo);
+        Principal.moveToFront(nuevo);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        Principal.removeAll();
+        Principal.repaint();
+        ViewMatXAlumno nuevo = new ViewMatXAlumno(conexion);
+        nuevo.setVisible(true);
+        Principal.add(nuevo);
+        Principal.moveToFront(nuevo);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Principal.removeAll();
+        Principal.repaint();
+        ViewCargaNotas nuevo = new ViewCargaNotas(conexion);
+        nuevo.setVisible(true);
+        Principal.add(nuevo);
+        Principal.moveToFront(nuevo);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -201,6 +248,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jbSalir;
     // End of variables declaration//GEN-END:variables
 }
