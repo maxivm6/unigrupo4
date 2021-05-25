@@ -11,9 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.swing.JOptionPane;
 import universidadgrupo4.modelos.Conexion;
 import universidadgrupo4.modelos.Materia;
@@ -106,6 +104,35 @@ public class MateriaData {
             JOptionPane.showMessageDialog(null,"error de conexion");
         }
          return materia; 
+    }
+      public ArrayList<Materia> obtenerMaterias(int id){
+           Materia materia=null;
+           ArrayList materias = new ArrayList();
+            
+          try{ 
+            String sql="SELECT * FROM  materia WHERE idMateria=?";
+            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            
+            ps.setInt(1, id);
+            
+            ResultSet rs=ps.executeQuery();
+           
+            
+            while(rs.next()){
+              materia=new Materia();
+              materia.setNombreMateria(rs.getString("nombre"));
+              materia.setIdMateria((rs.getInt("idMateria")));
+              materia.setEstado(rs.getBoolean("estado"));
+              materia.setAnio(rs.getInt("año"));
+              materias.add(materia);
+            }
+                
+            
+            ps.close();
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"error de conexion");
+        }
+         return materias; 
     }
           
 }

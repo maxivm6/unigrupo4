@@ -6,6 +6,7 @@
 package universidadgrupo4.vistas;
 
 import javax.swing.JOptionPane;
+import universidadgrupo4.modelos.Conexion;
 
 /**
  *
@@ -13,11 +14,15 @@ import javax.swing.JOptionPane;
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    Conexion conexion;
+    
     public Principal() {
         initComponents();
+        try{
+          conexion = new Conexion("jdbc:mysql://localhost/universidadgrupo4", "root", "");
+        } catch (ClassNotFoundException ex){
+            JOptionPane.showMessageDialog(null, "Error de driver");
+        }
     }
 
     /**
@@ -142,7 +147,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         Principal.removeAll();
         Principal.repaint();
-        ViewMateria nuevo = new ViewMateria();
+        ViewMateria nuevo = new ViewMateria(conexion);
         nuevo.setVisible(true);
         Principal.add(nuevo);
         Principal.moveToFront(nuevo);

@@ -24,8 +24,7 @@ public class Materia {
 
     @Override
     public String toString() {
-        return idMateria + "-" + nombreMateria;
-
+        return "ID " + idMateria + "-" + nombreMateria;
     }
 
     public int getIdMateria() {
