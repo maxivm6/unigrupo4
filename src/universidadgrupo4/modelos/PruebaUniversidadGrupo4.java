@@ -35,23 +35,25 @@ public class PruebaUniversidadGrupo4 {
         Alumno j= new Alumno(28143288,"Daniel","Richieri",fecha,true);
         AlumnoData aD=new AlumnoData(conexion);
         
-        aD.actualizarAlumno(b, 26);
-        aD.actualizarAlumno(j, 25);
+        System.out.println(aD.obtenerAlumno(1).getFechNac());    
         
-        aD.guardarAlumno(j);
-        Materia m1=new Materia ("LAB II",3,false);
-        Materia m2=new Materia ("Ingles II",1,false);
-        Materia m3=new Materia ("Matematicas I",1,true);
-        Materia m4=new Materia ("Eda I",1,true);
+//        aD.actualizarAlumno(b, 26);
+//        aD.actualizarAlumno(j, 25);
+//        
+//        aD.guardarAlumno(j);
+//        Materia m1=new Materia ("LAB II",3,false);
+//        Materia m2=new Materia ("Ingles II",1,false);
+//        Materia m3=new Materia ("Matematicas I",1,true);
+//        Materia m4=new Materia ("Eda I",1,true);
+//        
+//        MateriaData am=new MateriaData(conexion);
+//        am.guardarMateria(m1);
+//        am.guardarMateria(m4);
         
-        MateriaData am=new MateriaData(conexion);
-        am.guardarMateria(m1);
-        am.guardarMateria(m4);
-        
-        am.actualizarMateria(m1, 21);
-        am.actualizarMateria(m2, 22);
-        am.actualizarMateria(m3, 23);
-        am.actualizarMateria(m4, 24);
+//        am.actualizarMateria(m1, 21);
+//        am.actualizarMateria(m2, 22);
+//        am.actualizarMateria(m3, 23);
+//        am.actualizarMateria(m4, 24);
 
         
         //Cursada c = new Cursada(b,m3,8);

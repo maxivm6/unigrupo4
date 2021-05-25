@@ -42,6 +42,9 @@ public class ViewAlumnoXMat extends javax.swing.JInternalFrame {
         jLabel5.setForeground(new java.awt.Color(51, 102, 255));
         jLabel5.setText("Consulta");
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel3.setText("ID MATERIA");
 

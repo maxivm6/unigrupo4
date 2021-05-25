@@ -109,6 +109,9 @@ public class ViewMatXAlumno extends javax.swing.JInternalFrame {
                 .addGap(35, 35, 35))
         );
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel3.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel3.setText("ID MATERIA");
 

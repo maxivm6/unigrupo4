@@ -43,6 +43,9 @@ public class ViewCargaNotas extends javax.swing.JInternalFrame {
         jbCargar = new javax.swing.JButton();
         jbNuevo = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+
         jLabel4.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 102, 255));
         jLabel4.setText("Sistema de Notas");

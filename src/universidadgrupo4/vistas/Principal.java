@@ -101,6 +101,11 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem4.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jMenuItem4.setText("Alumnos");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuItem5.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
@@ -199,6 +204,15 @@ public class Principal extends javax.swing.JFrame {
         Principal.add(nuevo);
         Principal.moveToFront(nuevo);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        Principal.removeAll();
+        Principal.repaint();
+        ViewAlumno nuevo = new ViewAlumno(conexion);
+        nuevo.setVisible(true);
+        Principal.add(nuevo);
+        Principal.moveToFront(nuevo);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments

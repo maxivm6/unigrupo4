@@ -47,6 +47,11 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         jtNombre = new javax.swing.JTextField();
         jbNuevo = new javax.swing.JButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+        setResizable(true);
+
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 102, 255));
         jLabel1.setText("Materias");
@@ -300,9 +305,6 @@ public class ViewMateria extends javax.swing.JInternalFrame {
                 
             }
         }
-        
-        
-        
     }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed

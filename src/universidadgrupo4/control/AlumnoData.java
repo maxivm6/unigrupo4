@@ -1,4 +1,3 @@
-
 package universidadgrupo4.control;
 
 import java.sql.*;
@@ -9,12 +8,6 @@ import java.sql.Date;
 import universidadgrupo4.modelos.Alumno;
 import universidadgrupo4.modelos.Conexion;
 
-
-
-/**
- *
- * @author Usuario
- */
 public class AlumnoData {
     private Connection con;
     public AlumnoData(Conexion conexion){
@@ -38,7 +31,9 @@ public class AlumnoData {
                 alumno = new Alumno();
                 alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setNombre(rs.getString("nombre"));
+                alumno.setApellido(rs.getString("apellido"));
                 alumno.setFechaNac(rs.getDate("fechNac").toLocalDate());
+                alumno.setLegajo(rs.getInt("legajoDni"));
                 alumno.setEstado(rs.getBoolean("estado"));
             }
             ps.close();
