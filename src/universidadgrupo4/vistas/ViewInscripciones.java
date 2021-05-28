@@ -81,6 +81,11 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
         jbBaja.setBackground(new java.awt.Color(51, 102, 255));
         jbBaja.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jbBaja.setText("Baja");
+        jbBaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBajaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,26 +161,50 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
         Cursada cursada = new Cursada();
         cursada.setAlumno(nuevo.buscarAlumno(idAlumno));
         cursada.setMateria(nuevo.buscarMateria(idMateria));       
-        
-        List<Cursada> cursadas = nuevo.obtenerCursadas();
               
-        
-        //Hacer que no pueda inscribirse dos veces
-        try{
-            for (Cursada item:cursadas){
-                
-                if (item.getAlumno().getIdAlumno()!=idAlumno && item.getMateria().getIdMateria()!=idMateria) {
-                   nuevo.guardarCursada(cursada);
-                   JOptionPane.showMessageDialog(this, "Alta realizada");                  
-                }
-                else {
-                   JOptionPane.showMessageDialog(this, "Alumno ya inscripto en esta materia");
-                }
+        try{    
+            if (nuevo.CheckCursada(idAlumno, idMateria)) {
+                      JOptionPane.showMessageDialog(this, "Alumno ya inscripto en esta materia");               
             }
+            else {
+                   nuevo.guardarCursada(cursada);
+                   JOptionPane.showMessageDialog(this, "Alta realizada");
+            }
+            
         }catch(NullPointerException e){}
             
         
     }//GEN-LAST:event_jbAltaActionPerformed
+
+    private void jbBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBajaActionPerformed
+        int idAlumno=0,idMateria=0;
+        boolean val=false;
+        
+        CursadaData nuevo = new CursadaData(conexion);
+        try {
+            idAlumno = Integer.parseInt(jtIdAlumno.getText());
+            idMateria = Integer.parseInt(jtIdMateria.getText());
+            val=true;
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "Campo incorrecto"); 
+        }
+        Cursada cursada = new Cursada();
+        cursada.setAlumno(nuevo.buscarAlumno(idAlumno));
+        cursada.setMateria(nuevo.buscarMateria(idMateria));       
+              
+        try{    
+            int opcion = JOptionPane.showConfirmDialog(this, "Atencion. Esta accion eliminara la inscripcion actual", "Baja", 2, JOptionPane.WARNING_MESSAGE);
+        if (opcion==0) {
+            if (!nuevo.CheckCursada(idAlumno, idMateria)) {
+                      JOptionPane.showMessageDialog(this, "No se encuentra ninguna inscripcion");               
+            }
+            else {
+                   nuevo.borrarCursadaMateriaDeunAlumno(idAlumno,idMateria);
+                   JOptionPane.showMessageDialog(this, "Baja realizada");
+            }
+        }          
+        }catch(NullPointerException e){}
+    }//GEN-LAST:event_jbBajaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -260,7 +260,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         }
         
         try {
-            al = nuevo.obtenerAlumno(id);
+            al = nuevo.buscarAlumno(id);
             if (al!=null){
                 jtNombre.setText(al.getNombre());
                 jtApellido.setText(al.getApellido());
@@ -314,7 +314,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         }
         
         try {
-            al = nuevo.obtenerAlumno(id);
+            al = nuevo.buscarAlumno(id);
             
             if (al!=null){
                 int opcion = JOptionPane.showConfirmDialog(this, "Esta accion dara de baja:\n " 
@@ -348,12 +348,12 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         if (nombre.isEmpty()||apellido.isEmpty()||val==false){
            JOptionPane.showMessageDialog(this, "Campo incorrecto");  
         }else{
-            if (nuevo.obtenerAlumno(id)==null) {
+            if (nuevo.buscarAlumno(id)==null) {
                   JOptionPane.showMessageDialog(this, "No se encuentra el alumno");
             }else{                
                 Alumno al = new Alumno(legajo,nombre,apellido,fecha,true);
                 int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea modificar:\n " 
-                + nuevo.obtenerAlumno(id).toString(), "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
+                + nuevo.buscarAlumno(id).toString(), "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
                     if (opcion==0) {
                         nuevo.actualizarAlumno(al, id);
                         JOptionPane.showMessageDialog(this, "Se ha modificado el alumno");

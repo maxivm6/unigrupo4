@@ -1,10 +1,12 @@
 package universidadgrupo4.modelos;
 
 public class Cursada {
-protected int idCursada;
+protected Integer idCursada=null;
 protected Alumno alumno;
 protected Materia materia;
 protected float nota;
+protected int idAlumno=0;
+protected int idMateria=0;
 
 
     public Cursada(int idCursada, Alumno alumno, Materia materia, float nota) {
@@ -43,16 +45,16 @@ protected float nota;
         return alumno;
     }
 
-    public void setIdAlumno(Alumno idAlumno) {
-        this.alumno = idAlumno;
+    public void setIdAlumno(Alumno alumno) {
+        this.idAlumno = alumno.getIdAlumno();
     }
 
     public Materia getMateria() {
         return materia;
     }
 
-    public void setIdMateria(Materia idMateria) {
-        this.materia = idMateria;
+    public void setIdMateria(Materia materia) {
+        this.idMateria = materia.getIdMateria();
     }
 
     public float getNota() {

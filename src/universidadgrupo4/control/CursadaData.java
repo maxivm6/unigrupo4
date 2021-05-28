@@ -24,10 +24,33 @@ public class CursadaData {
             con = conexion.getConexion();
             this.aux=conexion;
         }catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"error de conexion");
+           JOptionPane.showMessageDialog(null,"error de conexion cursadas");
         }
     }
     
+    public boolean CheckCursada(int idAlumno,int idMateria){
+        Cursada cur = null;
+        try{ 
+            String sql = "SELECT idCursada FROM cursada WHERE idAlumno=? AND idMateria=?";
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ps.setInt(2, idMateria);
+            
+            
+            ResultSet rs=ps.executeQuery();
+            while(rs.next()){
+              cur=new Cursada();
+              cur.setIdCursada(rs.getInt("idCursada"));
+            }
+                
+            ps.close();
+            
+        }catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null,"error de conexion");
+        }
+        
+        return cur != null;
+    }
     public void guardarCursada(Cursada cursada){
             
         try {
@@ -76,7 +99,7 @@ public class CursadaData {
                 
             ps.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"error de conexion");
+            JOptionPane.showMessageDialog(null,"error de conexion en cursadaData");
         }
          return cursadas;     
         
@@ -85,7 +108,7 @@ public class CursadaData {
     
     public Alumno buscarAlumno(int id){
         AlumnoData ad = new AlumnoData(aux);
-        return ad.obtenerAlumno(id);
+        return ad.buscarAlumno(id);
         
     }
     

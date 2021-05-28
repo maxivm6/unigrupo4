@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import java.util.List;
+import universidadgrupo4.control.CursadaData;
 
 /**
  *
@@ -34,8 +35,8 @@ public class PruebaUniversidadGrupo4 {
         Alumno b= new Alumno(28043266,"Jorge","Berro",fecha,true);
         Alumno j= new Alumno(28143288,"Daniel","Richieri",fecha,true);
         AlumnoData aD=new AlumnoData(conexion);
+        System.out.println(aD.buscarAlumno(34104821));
         
-        System.out.println(aD.obtenerAlumno(1).getFechNac());    
         
 //        aD.actualizarAlumno(b, 26);
 //        aD.actualizarAlumno(j, 25);
@@ -56,9 +57,9 @@ public class PruebaUniversidadGrupo4 {
 //        am.actualizarMateria(m4, 24);
 
         
-        //Cursada c = new Cursada(b,m3,8);
-        //cursadaData cd = new cursadaData(conexion);
-        //cd.guardarCursada(c);
+//        Cursada c = new Cursada(b,m3,8);
+//        CursadaData cd = new CursadaData(conexion);
+//        System.out.println(cd.CheckCursada(1,22));
         
         
         

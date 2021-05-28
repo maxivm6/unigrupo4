@@ -186,7 +186,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         Principal.removeAll();
         Principal.repaint();
-        ViewAlumnoXMat nuevo = new ViewAlumnoXMat(conexion);
+        ViewAlumnoXMat nuevo = new ViewAlumnoXMat();
         nuevo.setVisible(true);
         Principal.add(nuevo);
         Principal.moveToFront(nuevo);
@@ -195,7 +195,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         Principal.removeAll();
         Principal.repaint();
-        ViewMatXAlumno nuevo = new ViewMatXAlumno(conexion);
+        ViewMatXAlumno nuevo = new ViewMatXAlumno();
         nuevo.setVisible(true);
         Principal.add(nuevo);
         Principal.moveToFront(nuevo);

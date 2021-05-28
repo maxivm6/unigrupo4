@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 import universidadgrupo4.modelos.Conexion;
 import universidadgrupo4.modelos.Materia;
@@ -27,7 +26,7 @@ public class MateriaData {
         try{
             con = conexion.getConexion();
         }catch (SQLException ex) {
-           JOptionPane.showMessageDialog(null,"error de conexion");
+           JOptionPane.showMessageDialog(null,"error de conexion materias");
         }
     }
      public void desactivarMateria(int id){
@@ -101,19 +100,17 @@ public class MateriaData {
             
             ps.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"error de conexion");
+            JOptionPane.showMessageDialog(null,"error de conexion materiaData");
         }
          return materia; 
     }
-      public ArrayList<Materia> obtenerMaterias(int id){
-           Materia materia=null;
-           ArrayList materias = new ArrayList();
+      public ArrayList<Materia> obtenerMaterias(){
+           Materia materia;
+           ArrayList<Materia> materias = new ArrayList();
             
           try{ 
-            String sql="SELECT * FROM  materia WHERE idMateria=?";
-            PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            
-            ps.setInt(1, id);
+            String sql="SELECT * FROM  materia";
+            PreparedStatement ps=con.prepareStatement(sql);
             
             ResultSet rs=ps.executeQuery();
            
@@ -130,7 +127,7 @@ public class MateriaData {
             
             ps.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"error de conexion");
+            JOptionPane.showMessageDialog(null,"error de conexion en materiaData");
         }
          return materias; 
     }
