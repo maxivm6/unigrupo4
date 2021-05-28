@@ -8,6 +8,7 @@ package universidadgrupo4.vistas;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import universidadgrupo4.control.MateriaData;
+import universidadgrupo4.modelos.Alumno;
 import universidadgrupo4.modelos.Conexion;
 import universidadgrupo4.modelos.Materia;
 
@@ -227,6 +228,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         int año = 0;
         boolean val=false;
         MateriaData nuevo = new MateriaData(con);
+        ArrayList <Materia> materias = new ArrayList(); 
         
         
         try {
@@ -239,10 +241,17 @@ public class ViewMateria extends javax.swing.JInternalFrame {
            JOptionPane.showMessageDialog(this, "Campo incorrecto");  
         }
         else{
+            materias = nuevo.obtenerMaterias();
             Materia mat = new Materia(nombre,año,true);
-            nuevo.guardarMateria(mat);
-            JOptionPane.showMessageDialog(this, "Materia agregada");
-        }
+            
+            if (materias.stream().anyMatch(a->a.getNombreMateria()==mat.getNombreMateria())){
+                JOptionPane.showMessageDialog(this, "Ya existe la materia en el sistema");
+            }
+            else{
+                    nuevo.guardarMateria(mat);
+                    JOptionPane.showMessageDialog(this, "Materia agregada");
+                }                             
+            }     
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed

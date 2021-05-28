@@ -62,7 +62,7 @@ public void cargaDatosMaterias(){
     Materia mat = (Materia) cbMaterias.getSelectedItem();
     for (Cursada c:cursadas){
         if(c.getMateria().getIdMateria()==mat.getIdMateria()){
-            modelo.addRow(new Object[]{c.getAlumno().getIdAlumno(),c.getAlumno().getNombre(),c.getAlumno().getApellido()});
+            modelo.addRow(new Object[]{c.getAlumno().getIdAlumno(),c.getAlumno().getNombre(),c.getAlumno().getApellido(),c.getNota()});
         }
     }
 }
@@ -72,6 +72,7 @@ public void cabeceraTabla(){
     columns.add("ID");
     columns.add("Nombre");
     columns.add("Apellido");
+    columns.add("Nota");
     for (Object it:columns){
         modelo.addColumn(it);
     }

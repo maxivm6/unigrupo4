@@ -8,6 +8,7 @@ package universidadgrupo4.vistas;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import universidadgrupo4.control.AlumnoData;
 import universidadgrupo4.control.MateriaData;
@@ -280,6 +281,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         int legajo = 0;
         boolean val=false;
         AlumnoData nuevo = new AlumnoData(con);
+        ArrayList<Alumno> alumnos = new ArrayList();
         
         try {
             nombre = jtNombre.getText();
@@ -293,10 +295,21 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
            JOptionPane.showMessageDialog(this, "Campo incorrecto");  
         }
         else{
+            alumnos = nuevo.obtenerAlumnos();
             Alumno al = new Alumno(legajo,nombre,apellido,fecha,true);
-            nuevo.guardarAlumno(al);
-            JOptionPane.showMessageDialog(this, "Alumno agregado");
-        }
+            
+            if (alumnos.stream().anyMatch(a->a.getLegajo()==al.getLegajo())){
+                JOptionPane.showMessageDialog(this, "Ya existe el alumno en el sistema");
+            }
+                
+        
+                    
+                else{
+                    nuevo.guardarAlumno(al);
+                    JOptionPane.showMessageDialog(this, "Alumno agregado");
+                }                             
+            }                              
+        
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed

@@ -57,7 +57,7 @@ public class ViewMatXAlumno extends javax.swing.JInternalFrame {
     int id = Integer.parseInt(jtId.getText());
     for (Cursada c:cursadas){
         if(c.getAlumno().getIdAlumno()==id){
-            modelo.addRow(new Object[]{c.getMateria().getIdMateria(),c.getMateria().getNombreMateria(),c.getMateria().getAnio()});
+            modelo.addRow(new Object[]{c.getMateria().getIdMateria(),c.getMateria().getNombreMateria(),c.getMateria().getAnio(),c.getNota()});
         }
     }
 }
@@ -71,6 +71,7 @@ public class ViewMatXAlumno extends javax.swing.JInternalFrame {
     columns.add("ID");
     columns.add("Nombre");
     columns.add("Año");
+    columns.add("Nota");
     for (Object it:columns){
         modelo.addColumn(it);
     }
