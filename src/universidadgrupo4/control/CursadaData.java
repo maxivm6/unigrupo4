@@ -54,12 +54,11 @@ public class CursadaData {
     public void guardarCursada(Cursada cursada){
             
         try {
-            String sql = "INSERT INTO cursada (idMateria,nota,idAlumno) VALUES (?,?,?)";
+            String sql = "INSERT INTO cursada (idMateria,idAlumno) VALUES (?,?)";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             
             ps.setInt(1,cursada.getMateria().getIdMateria());
-            ps.setDouble(2,cursada.getNota());
-            ps.setInt(3,cursada.getAlumno().getIdAlumno());
+            ps.setInt(2,cursada.getAlumno().getIdAlumno());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             
@@ -90,7 +89,7 @@ public class CursadaData {
               Materia m = buscarMateria(rs.getInt("idMateria"));
               cursada.setMateria(m);
               cursada.setIdMateria(m); 
-              cursada.setNota(rs.getInt("nota"));
+              cursada.setNota(rs.getFloat("nota"));
               Alumno a = buscarAlumno(rs.getInt("IdAlumno"));
               cursada.setAlumno(a);
               cursada.setIdAlumno(a);
