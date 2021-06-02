@@ -337,24 +337,15 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                 } catch(Exception e){
                         JOptionPane.showMessageDialog(this, "Formato de APELLIDO incorrecto");
                         jtNombre.requestFocus();
-                }
-             
-                     
-                    
-            
-            
-         
-        
+                }                    
+                 
             if (val){
                 alumnos = nuevo.obtenerAlumnos();
                 Alumno al = new Alumno(legajo,nombre,apellido,fecha,true);
 
                 if (alumnos.stream().anyMatch(a->a.getLegajo()==al.getLegajo())){
                     JOptionPane.showMessageDialog(this, "Ya existe el legajo: "+legajo+ " en el sistema");
-                }
-                
-        
-                    
+                }                   
                 else{
                     nuevo.guardarAlumno(al);
                     JOptionPane.showMessageDialog(this, "Alumno agregado");
@@ -421,28 +412,67 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         AlumnoData nuevo = new AlumnoData(con);
         
         try {
+            try{
+                id = Integer.parseInt(jtId.getText()) ;
+            } catch (NumberFormatException e){
+                JOptionPane.showMessageDialog(this, "ID debe ser un numero.");
+                limpiar();
+            }    
             nombre = jtNombre.getText();
-            apellido = jtApellido.getText();
-            legajo = Integer.parseInt(jtLegajo.getText()) ;
-            id = Integer.parseInt(jtId.getText());
-            fecha = LocalDate.parse(jtFechaNac.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-            val=true;
-        } catch (NumberFormatException e){}
-        if (nombre.isEmpty()||apellido.isEmpty()||val==false){
-           JOptionPane.showMessageDialog(this, "Campo incorrecto");  
-        }else{
-            if (nuevo.buscarAlumno(id)==null) {
-                  JOptionPane.showMessageDialog(this, "No se encuentra el alumno");
-            }else{                
-                Alumno al = new Alumno(legajo,nombre,apellido,fecha,true);
-                int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea modificar:\n " 
-                + nuevo.buscarAlumno(id).toString(), "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
-                    if (opcion==0) {
-                        nuevo.actualizarAlumno(al, id);
-                        JOptionPane.showMessageDialog(this, "Se ha modificado el alumno");
-                    }               
+            try{
+                
+                if (nombre.isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Campo vacio en NOMBRE");
+                    jtNombre.requestFocus();
+                }
+                else if (!validarString(nombre)){
+                        JOptionPane.showMessageDialog(this, "Formato de NOMBRE incorrecto");
+                        jtNombre.requestFocus();
+                }
             }
-        }
+            catch(Exception e){}         
+                try{
+                    apellido = jtApellido.getText();
+                    if(apellido.isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Campo vacio en APELLIDO");
+                        jtApellido.requestFocus();
+                    }else if (!validarString(apellido)){
+                        JOptionPane.showMessageDialog(this, "Formato de APELLIDO incorrecto");
+                        jtNombre.requestFocus();
+                    }    
+                    try{
+                        legajo = Integer.parseInt(jtLegajo.getText());
+                    try{
+                        fecha = LocalDate.parse(jtFechaNac.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                        val=true;
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(this, "El formato de fecha debe ser: dd/MM/yyyy ");
+                        jtFechaNac.requestFocus();
+                    }
+                
+                    } catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(this, "Legajo debe ser numero entero");
+                        jtLegajo.requestFocus();
+                    } 
+                } catch(Exception e){
+                        JOptionPane.showMessageDialog(this, "Formato de APELLIDO incorrecto");
+                        jtNombre.requestFocus();
+                }  
+            if (val){
+                if (nuevo.buscarAlumno(id)==null) {
+                      JOptionPane.showMessageDialog(this, "No se encuentra el alumno");
+                }else{                
+                    Alumno al = new Alumno(legajo,nombre,apellido,fecha,true);
+                    int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea modificar:\n " 
+                    + nuevo.buscarAlumno(id).toString(), "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
+                        if (opcion==0) {
+                            nuevo.actualizarAlumno(al, id);
+                            JOptionPane.showMessageDialog(this, "Se ha modificado el alumno "+al.getNombre()+" "+al.getApellido());
+                            limpiar();
+                        }               
+                }
+            }    
+        }catch (Exception e){}
     }//GEN-LAST:event_jbCambiarActionPerformed
 
     private void jtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEstadoActionPerformed
