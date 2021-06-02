@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import universidadgrupo4.control.AlumnoData;
 import universidadgrupo4.control.CursadaData;
 import universidadgrupo4.control.MateriaData;
@@ -279,7 +280,27 @@ public void borrarFilasTabla(){
     }//GEN-LAST:event_cbAlumnosActionPerformed
 
     private void jtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBuscarActionPerformed
-        cargaDatos();
+        int id=0;
+        boolean val=false;
+        AlumnoData nuevo = new AlumnoData(conexion);
+        Alumno al = null;
+        
+        try{
+            id = Integer.parseInt(jtId.getText()) ;
+            val=true;
+            
+            al = nuevo.buscarAlumno(id);
+            if (al!=null){
+                cargaDatos();
+            }else{
+                    JOptionPane.showMessageDialog(this, "No se encuentra alumno con ID: "+id);
+                    jtId.setText(null);
+            }
+        
+        } catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "ID debe ser un numero.");
+            jtId.setText(null);
+        }
     }//GEN-LAST:event_jtBuscarActionPerformed
 
 

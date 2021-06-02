@@ -71,8 +71,7 @@ public class AlumnoData {
         return alumnos;
     }
     
-    public void borrarAlumno(int id){
-        
+    public void borrarAlumno(int id){ 
         try{
             String sql="DELETE FROM alumno WHERE idAlumno=?";
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -81,7 +80,7 @@ public class AlumnoData {
             ps.executeUpdate();
             ps.close();
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"error de conexion");
+            
         }
     }
     

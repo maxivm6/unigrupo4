@@ -7,7 +7,9 @@ package universidadgrupo4.vistas;
 
 import java.util.List;
 import javax.swing.JOptionPane;
+import universidadgrupo4.control.AlumnoData;
 import universidadgrupo4.control.CursadaData;
+import universidadgrupo4.control.MateriaData;
 import universidadgrupo4.modelos.Conexion;
 import universidadgrupo4.modelos.Cursada;
 
@@ -149,19 +151,32 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
     private void jbAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAltaActionPerformed
         int idAlumno=0,idMateria=0;
         boolean val=false;
+        AlumnoData al = new AlumnoData(conexion);
+        MateriaData mat = new MateriaData(conexion); 
         
         CursadaData nuevo = new CursadaData(conexion);
         try {
             idAlumno = Integer.parseInt(jtIdAlumno.getText());
             idMateria = Integer.parseInt(jtIdMateria.getText());
             val=true;
-        } catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Campo incorrecto"); 
-        }
+        
         Cursada cursada = new Cursada();
         cursada.setAlumno(nuevo.buscarAlumno(idAlumno));
         cursada.setMateria(nuevo.buscarMateria(idMateria));       
-              
+        
+        try{
+            if (al.buscarAlumno(idAlumno)==null){
+               JOptionPane.showMessageDialog(this, "No existe alumno con ID: "+idAlumno+" en el sistema");
+               jtIdAlumno.setText(null);
+            }
+            else if(mat.buscarMateria(idMateria)==null){
+                   JOptionPane.showMessageDialog(this, "No existe materia con ID: "+idMateria+" en el sistema");
+                   jtIdMateria.setText(null);
+            }
+            
+        }catch(Exception e){}
+        
+        
         try{    
             if (nuevo.CheckCursada(idAlumno, idMateria)) {
                       JOptionPane.showMessageDialog(this, "Alumno ya inscripto en esta materia");               
@@ -172,6 +187,12 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
             }
             
         }catch(NullPointerException e){}
+        
+        }catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "ID alumno y materia deben ser numeros enteros. ");
+            jtIdAlumno.setText(null);
+            jtIdMateria.setText(null);
+        }
             
         
     }//GEN-LAST:event_jbAltaActionPerformed
@@ -179,31 +200,53 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
     private void jbBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBajaActionPerformed
         int idAlumno=0,idMateria=0;
         boolean val=false;
+        AlumnoData al = new AlumnoData(conexion);
+        MateriaData mat = new MateriaData(conexion); 
         
         CursadaData nuevo = new CursadaData(conexion);
         try {
             idAlumno = Integer.parseInt(jtIdAlumno.getText());
             idMateria = Integer.parseInt(jtIdMateria.getText());
             val=true;
-        } catch (NumberFormatException e){
-            JOptionPane.showMessageDialog(this, "Campo incorrecto"); 
-        }
+        
         Cursada cursada = new Cursada();
         cursada.setAlumno(nuevo.buscarAlumno(idAlumno));
-        cursada.setMateria(nuevo.buscarMateria(idMateria));       
-              
+        cursada.setMateria(nuevo.buscarMateria(idMateria));
+        
+         try{
+            if (al.buscarAlumno(idAlumno)==null){
+               JOptionPane.showMessageDialog(this, "No existe alumno con ID: "+idAlumno+" en el sistema");
+               jtIdAlumno.setText(null);
+            }
+            else if(mat.buscarMateria(idMateria)==null){
+                   JOptionPane.showMessageDialog(this, "No existe materia con ID: "+idMateria+" en el sistema");
+                   jtIdMateria.setText(null);
+            }
+        }catch(Exception e){}      
         try{    
             int opcion = JOptionPane.showConfirmDialog(this, "Atencion. Esta accion eliminara la inscripcion actual", "Baja", 2, JOptionPane.WARNING_MESSAGE);
         if (opcion==0) {
             if (!nuevo.CheckCursada(idAlumno, idMateria)) {
-                      JOptionPane.showMessageDialog(this, "No se encuentra ninguna inscripcion");               
+                      JOptionPane.showMessageDialog(this, "No se encuentra ninguna inscripcion");
+                      jtIdAlumno.setText(null);
+                      jtIdMateria.setText(null);
             }
             else {
                    nuevo.borrarCursadaMateriaDeunAlumno(idAlumno,idMateria);
                    JOptionPane.showMessageDialog(this, "Baja realizada");
+                   jtIdAlumno.setText(null);
+                   jtIdMateria.setText(null);
             }
         }          
-        }catch(NullPointerException e){}
+        }catch(NullPointerException e){
+            
+        }}
+        catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(this, "ID alumno y materia deben ser numeros enteros. ");
+            jtIdAlumno.setText(null);
+            jtIdMateria.setText(null);
+        }
+        
     }//GEN-LAST:event_jbBajaActionPerformed
 
 
