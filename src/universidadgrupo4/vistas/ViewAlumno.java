@@ -298,26 +298,54 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         ArrayList<Alumno> alumnos = new ArrayList();
         
         try {
-            
             nombre = jtNombre.getText();
-            apellido = jtApellido.getText();
-            try{    
-                legajo = Integer.parseInt(jtLegajo.getText());
-            }catch(Exception e){
-                JOptionPane.showMessageDialog(this, "Legajo debe ser numero entero");
-            }
             try{
-                fecha = LocalDate.parse(jtFechaNac.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-            }catch(Exception e){
-               JOptionPane.showMessageDialog(this, "El formato de fecha debe ser: dd/MM/yyyy ");
+                
+                if (nombre.isEmpty()){
+                    JOptionPane.showMessageDialog(this, "Campo vacio en NOMBRE");
+                    jtNombre.requestFocus();
+                }
+                else if (!validarString(nombre)){
+                        JOptionPane.showMessageDialog(this, "Formato de NOMBRE incorrecto");
+                        jtNombre.requestFocus();
+                }
             }
+            catch(Exception e){}         
+                try{
+                    apellido = jtApellido.getText();
+                    if(apellido.isEmpty()){
+                        JOptionPane.showMessageDialog(this, "Campo vacio en APELLIDO");
+                        jtApellido.requestFocus();
+                    }else if (!validarString(apellido)){
+                        JOptionPane.showMessageDialog(this, "Formato de APELLIDO incorrecto");
+                        jtNombre.requestFocus();
+                    }    
+                    try{
+                        legajo = Integer.parseInt(jtLegajo.getText());
+                    try{
+                        fecha = LocalDate.parse(jtFechaNac.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+                        val=true;
+                    }catch(Exception e){
+                        JOptionPane.showMessageDialog(this, "El formato de fecha debe ser: dd/MM/yyyy ");
+                        jtFechaNac.requestFocus();
+                    }
+                
+                    } catch(NumberFormatException e){
+                        JOptionPane.showMessageDialog(this, "Legajo debe ser numero entero");
+                        jtLegajo.requestFocus();
+                    } 
+                } catch(Exception e){
+                        JOptionPane.showMessageDialog(this, "Formato de APELLIDO incorrecto");
+                        jtNombre.requestFocus();
+                }
+             
+                     
+                    
+            
             
          
         
-            if (nombre.isEmpty()||apellido.isEmpty()||val==false){
-               JOptionPane.showMessageDialog(this, "Revise legajo o campos vacios");  
-            }
-            else{
+            if (val){
                 alumnos = nuevo.obtenerAlumnos();
                 Alumno al = new Alumno(legajo,nombre,apellido,fecha,true);
 
@@ -462,6 +490,32 @@ void limpiar(){
        jtFechaNac.setText(null);
        jtId.requestFocus();
 }
+public static boolean validarString(String user){
+    String specialChars = "~`!@#$%^&*()-_=+\\|[{]};:'\",<.>/?";
+        boolean specialchar = false;
+        boolean numero = false;
+            for (int i = 0; i < user.length(); i++) {
+                if (specialChars.contains(String.valueOf(user.charAt(i)))) {
+                    specialchar = true;
+                } else if (Character.isDigit(Integer.valueOf(user.charAt(i)))) {
+                    numero = true;
+                }
+            }
+            if (specialchar || numero) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+    
 
+
+private static boolean isNumeric(String cadena){
+	try {
+		Integer.parseInt(cadena);
+		return true;
+	} catch (NumberFormatException nfe){
+		return false;
+	}
 }
-
+}
