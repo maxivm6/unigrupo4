@@ -47,6 +47,8 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         jtNombre = new javax.swing.JTextField();
         jbNuevo = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel9 = new javax.swing.JLabel();
+        chActivo = new javax.swing.JCheckBox();
 
         setClosable(true);
         setIconifiable(true);
@@ -66,9 +68,14 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         jtId.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
         jtAño.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
+        jtAño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtAñoActionPerformed(evt);
+            }
+        });
 
         jbBuscar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\lupa2.png")); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +84,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         jbGuardar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\guardar.png")); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +93,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         jbBorrar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbBorrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\cancelar.png")); // NOI18N
+        jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         jbBorrar.setText("Borrar");
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +102,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         jbActualizar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbActualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\actuaizar.png")); // NOI18N
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actuaizar.png"))); // NOI18N
         jbActualizar.setText("Actualizar");
         jbActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,11 +116,20 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         jtNombre.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
         jbNuevo.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbNuevo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\plus.png")); // NOI18N
+        jbNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plus.png"))); // NOI18N
         jbNuevo.setText("Nuevo");
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuevoActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
+        jLabel9.setText("ESTADO:");
+
+        chActivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chActivoActionPerformed(evt);
             }
         });
 
@@ -127,11 +143,16 @@ public class ViewMateria extends javax.swing.JInternalFrame {
                 .addGap(254, 254, 254))
             .addGroup(layout.createSequentialGroup()
                 .addGap(66, 66, 66)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
@@ -174,10 +195,16 @@ public class ViewMateria extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(chActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,7 +249,15 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         int año = 0;
         boolean val=false;
         MateriaData nuevo = new MateriaData(con);
-        ArrayList <Materia> materias = new ArrayList(); 
+        ArrayList <Materia> materias = new ArrayList();
+        boolean estado = false; 
+        
+        
+        if(chActivo.isSelected()){
+            estado=true;
+        }else{
+            estado=false;
+        }
         
         
         try {
@@ -237,7 +272,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         }
         else{
             materias = nuevo.obtenerMaterias();
-            Materia mat = new Materia(nombre,año,true);
+            Materia mat = new Materia(nombre,año,estado);
             
             if (materias.stream().anyMatch(a->a.getNombreMateria()==mat.getNombreMateria())){
                 JOptionPane.showMessageDialog(this, "Ya existe la materia en el sistema");
@@ -290,6 +325,14 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         String nombre = null;
         boolean val=false;
         MateriaData nuevo = new MateriaData(con);
+        boolean estado = false; 
+        
+        
+        if(chActivo.isSelected()){
+            estado=true;
+        }else{
+            estado=false;
+        }
         
         try {
             nombre = jtNombre.getText();
@@ -306,7 +349,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
                   limpiar();
             }else{
                 
-                Materia mat = new Materia(id,nombre,año,true);
+                Materia mat = new Materia(id,nombre,año,estado);
                 int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea modificar:\n " 
                 + nuevo.buscarMateria(id).toString(), "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
                     if (opcion==0) {
@@ -326,12 +369,22 @@ public class ViewMateria extends javax.swing.JInternalFrame {
        jtId.requestFocus();
     }//GEN-LAST:event_jbNuevoActionPerformed
 
+    private void jtAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtAñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtAñoActionPerformed
+
+    private void chActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chActivoActionPerformed
+
+    }//GEN-LAST:event_chActivoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox chActivo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton jbActualizar;
     private javax.swing.JButton jbBorrar;

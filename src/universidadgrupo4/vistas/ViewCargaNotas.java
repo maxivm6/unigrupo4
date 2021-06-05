@@ -59,7 +59,7 @@ public class ViewCargaNotas extends javax.swing.JInternalFrame {
         jLabel6.setText("NOTA");
 
         jbCargar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbCargar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\plus2.png")); // NOI18N
+        jbCargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/plus2.png"))); // NOI18N
         jbCargar.setText("   Cargar Nota");
         jbCargar.setPreferredSize(new java.awt.Dimension(89, 31));
         jbCargar.addActionListener(new java.awt.event.ActionListener() {

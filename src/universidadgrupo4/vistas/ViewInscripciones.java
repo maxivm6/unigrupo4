@@ -72,7 +72,7 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
         });
 
         jbAlta.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbAlta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\flechaverde.png")); // NOI18N
+        jbAlta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/flechaverde.png"))); // NOI18N
         jbAlta.setText(" Alta");
         jbAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,7 +81,7 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
         });
 
         jbBaja.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbBaja.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\flecharoja.png")); // NOI18N
+        jbBaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/flecharoja.png"))); // NOI18N
         jbBaja.setText(" Baja");
         jbBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

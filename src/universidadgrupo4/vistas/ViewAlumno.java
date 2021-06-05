@@ -82,7 +82,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         jtId.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
         jbBuscar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\lupa2.png")); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/lupa2.png"))); // NOI18N
         jbBuscar.setText(" Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +124,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         jtLegajo.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
         jbCambiar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbCambiar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\actuaizar.png")); // NOI18N
+        jbCambiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/actuaizar.png"))); // NOI18N
         jbCambiar.setText("Actualizar");
         jbCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +133,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         });
 
         jbGuardar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\guardar.png")); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar.png"))); // NOI18N
         jbGuardar.setText(" Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +142,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         });
 
         jbBorrar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
-        jbBorrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\cancelar.png")); // NOI18N
+        jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cancelar.png"))); // NOI18N
         jbBorrar.setText("Borrar");
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

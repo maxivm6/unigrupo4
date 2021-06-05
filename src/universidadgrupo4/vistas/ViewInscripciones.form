@@ -137,7 +137,7 @@
           <Font name="Calibri Light" size="24" style="0"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Maxi\Desktop\ULP\LAB I\flechaverde.png"/>
+          <Image iconType="3" name="/imagenes/flechaverde.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value=" Alta"/>
       </Properties>
@@ -151,7 +151,7 @@
           <Font name="Calibri Light" size="24" style="0"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Maxi\Desktop\ULP\LAB I\flecharoja.png"/>
+          <Image iconType="3" name="/imagenes/flecharoja.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value=" Baja"/>
       </Properties>
