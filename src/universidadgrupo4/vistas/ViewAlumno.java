@@ -55,7 +55,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         jbGuardar = new javax.swing.JButton();
         jbBorrar = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jtEstado = new javax.swing.JCheckBox();
+        chActivo = new javax.swing.JCheckBox();
 
         jButton1.setText("jButton1");
 
@@ -63,6 +63,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
 
         jLabel2.setText("jLabel2");
 
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -80,9 +81,9 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
 
         jtId.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        jbBuscar.setBackground(new java.awt.Color(51, 102, 255));
-        jbBuscar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jbBuscar.setText("Buscar");
+        jbBuscar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\lupa2.png")); // NOI18N
+        jbBuscar.setText(" Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBuscarActionPerformed(evt);
@@ -112,12 +113,18 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         jtFechaNac.setEditable(false);
         jtFechaNac.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
         jtFechaNac.setText("dd/MM/yyyy");
+        jtFechaNac.setToolTipText("Formato dd/MM/yyyy");
+        jtFechaNac.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtFechaNacFocusGained(evt);
+            }
+        });
 
         jtLegajo.setEditable(false);
         jtLegajo.setFont(new java.awt.Font("Calibri Light", 0, 18)); // NOI18N
 
-        jbCambiar.setBackground(new java.awt.Color(51, 102, 255));
-        jbCambiar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbCambiar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        jbCambiar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\actuaizar.png")); // NOI18N
         jbCambiar.setText("Actualizar");
         jbCambiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,18 +132,18 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        jbGuardar.setBackground(new java.awt.Color(51, 102, 255));
-        jbGuardar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jbGuardar.setText("Guardar");
+        jbGuardar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\guardar.png")); // NOI18N
+        jbGuardar.setText(" Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbGuardarActionPerformed(evt);
             }
         });
 
-        jbBorrar.setBackground(new java.awt.Color(51, 102, 255));
-        jbBorrar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jbBorrar.setText("Baja");
+        jbBorrar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        jbBorrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\cancelar.png")); // NOI18N
+        jbBorrar.setText("Borrar");
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBorrarActionPerformed(evt);
@@ -146,9 +153,9 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Arial", 0, 20)); // NOI18N
         jLabel9.setText("ESTADO:");
 
-        jtEstado.addActionListener(new java.awt.event.ActionListener() {
+        chActivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtEstadoActionPerformed(evt);
+                chActivoActionPerformed(evt);
             }
         });
 
@@ -162,6 +169,17 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(jtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,55 +189,43 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                                 .addGap(489, 489, 489)
                                 .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27)
-                                .addComponent(jtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(167, 167, 167))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)
-                                .addComponent(jbCambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(144, 144, 144))))))
+                                .addComponent(chActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbGuardar)
+                                .addGap(28, 28, 28)
+                                .addComponent(jbCambiar)
+                                .addGap(24, 24, 24)
+                                .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(167, 167, 167))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
                 .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83)
-                .addComponent(jbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(195, 195, 195))
+                .addComponent(jbBuscar)
+                .addGap(189, 189, 189))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(319, 319, 319))
+                .addGap(328, 328, 328))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,18 +243,21 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chActivo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtLegajo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbCambiar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57))
         );
+
+        jtFechaNac.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -296,6 +305,15 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         boolean val=false;
         AlumnoData nuevo = new AlumnoData(con);
         ArrayList<Alumno> alumnos = new ArrayList();
+        boolean estado = false; 
+        
+        
+        if(chActivo.isSelected()){
+            estado=true;
+        }else{
+            estado=false;
+        }
+
         
         try {
             nombre = jtNombre.getText();
@@ -309,6 +327,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                         JOptionPane.showMessageDialog(this, "Formato de NOMBRE incorrecto");
                         jtNombre.requestFocus();
                 }
+                
             }
             catch(Exception e){}         
                 try{
@@ -328,8 +347,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                     }catch(Exception e){
                         JOptionPane.showMessageDialog(this, "El formato de fecha debe ser: dd/MM/yyyy ");
                         jtFechaNac.requestFocus();
-                    }
-                
+                    }                
                     } catch(NumberFormatException e){
                         JOptionPane.showMessageDialog(this, "Legajo debe ser numero entero");
                         jtLegajo.requestFocus();
@@ -341,7 +359,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                  
             if (val){
                 alumnos = nuevo.obtenerAlumnos();
-                Alumno al = new Alumno(legajo,nombre,apellido,fecha,true);
+                Alumno al = new Alumno(legajo,nombre,apellido,fecha,estado);
 
                 if (alumnos.stream().anyMatch(a->a.getLegajo()==al.getLegajo())){
                     JOptionPane.showMessageDialog(this, "Ya existe el legajo: "+legajo+ " en el sistema");
@@ -365,6 +383,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         Alumno al = null;
         ArrayList<Cursada> cursadas = (ArrayList<Cursada>) cd.obtenerCursadas();
         
+        
         try {
             id = Integer.parseInt(jtId.getText()) ;
             val=true;
@@ -373,24 +392,23 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
             al = nuevo.buscarAlumno(id);
 
                 if (al!=null){
-                    int opcion = JOptionPane.showConfirmDialog(this, "Esta accion dara de baja:\n " 
+                    int opcion = JOptionPane.showConfirmDialog(this, "Esta accion borrara:\n " 
                     + al.toString() + 
                     "\n Estas seguro?", "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
                     if (opcion==0) {
                         Cursada cur =null;
-                        for (Cursada em:cursadas){
-                            if (em.getAlumno().getIdAlumno()==id) {
-                                cur = em;
-                            }
-                        }  
-                        if(cur.getAlumno().getIdAlumno()==id){
-                                JOptionPane.showMessageDialog(this, "ERROR. Alumno con ID: "+id+"- "+cur.getAlumno().getNombre()+" "+cur.getAlumno().getApellido()+" se encuentra con cursadas activas");
+                        for (Cursada em : cursadas){
+                            if (em.getAlumno().getIdAlumno() == al.getIdAlumno()) {                                
+                                JOptionPane.showMessageDialog(this, "ERROR. Alumno con ID: "+id+"- "+em.getAlumno().getNombre()+" "+em.getAlumno().getApellido()+" se encuentra con cursadas activas");
                                 limpiar();
-                        }else{
+                                break;
+                            }else{
                                 nuevo.borrarAlumno(id);
                                 JOptionPane.showMessageDialog(this, "Alumno dado de baja");
                                 limpiar();
-                        }                   
+                                break;
+                            }                             
+                        }  
                     }
                 } else{
                     JOptionPane.showMessageDialog(this, "No se encuentra alumno con ID: "+id);
@@ -410,6 +428,17 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
         LocalDate fecha =null;
         boolean val=false;
         AlumnoData nuevo = new AlumnoData(con);
+        CursadaData cd = new CursadaData(con);
+        
+        ArrayList<Cursada> cursadas = (ArrayList<Cursada>) cd.obtenerCursadas();
+        boolean estado = false; 
+        
+        
+        if(chActivo.isSelected()){
+            estado=true;
+        }else{
+            estado=false;
+        }
         
         try {
             try{
@@ -462,22 +491,35 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                 if (nuevo.buscarAlumno(id)==null) {
                       JOptionPane.showMessageDialog(this, "No se encuentra el alumno");
                 }else{                
-                    Alumno al = new Alumno(legajo,nombre,apellido,fecha,true);
+                    Alumno al = new Alumno(legajo,nombre,apellido,fecha,estado);
                     int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea modificar:\n " 
                     + nuevo.buscarAlumno(id).toString(), "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
                         if (opcion==0) {
-                            nuevo.actualizarAlumno(al, id);
-                            JOptionPane.showMessageDialog(this, "Se ha modificado el alumno "+al.getNombre()+" "+al.getApellido());
-                            limpiar();
+                            
+                            Cursada cur =null;
+                            for (Cursada em:cursadas){
+                                if (em.getAlumno().getIdAlumno() == id) {                                
+                                    JOptionPane.showMessageDialog(this, "ERROR. No puede dar de baja alumno : "+id+"- "+em.getAlumno().getNombre()+" "+em.getAlumno().getApellido()+" mientras se encuentra con cursadas activas");
+                                    limpiar();
+                                    break;
+                                }else{
+                                    nuevo.actualizarAlumno(al, id);
+                                    JOptionPane.showMessageDialog(this, "Se ha modificado el alumno "+al.getNombre()+" "+al.getApellido());
+                                    limpiar();
+                                    break;
+                                } 
+                            
+                            }  
                         }               
                 }
             }    
         }catch (Exception e){}
     }//GEN-LAST:event_jbCambiarActionPerformed
 
-    private void jtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtEstadoActionPerformed
+    private void chActivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chActivoActionPerformed
         
-    }//GEN-LAST:event_jtEstadoActionPerformed
+        
+    }//GEN-LAST:event_chActivoActionPerformed
 
     private void jtNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtNombreMouseClicked
        boolean val = true;
@@ -487,8 +529,13 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
        jtFechaNac.setEditable(val);
     }//GEN-LAST:event_jtNombreMouseClicked
 
+    private void jtFechaNacFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtFechaNacFocusGained
+        
+    }//GEN-LAST:event_jtFechaNacFocusGained
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox chActivo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -505,7 +552,6 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbCambiar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JTextField jtApellido;
-    private javax.swing.JCheckBox jtEstado;
     private javax.swing.JTextField jtFechaNac;
     private javax.swing.JTextField jtId;
     private javax.swing.JTextField jtLegajo;

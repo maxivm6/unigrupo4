@@ -109,7 +109,7 @@ public void borrarFilasTabla(){
             }
         });
 
-        tAlumnos.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        tAlumnos.setFont(new java.awt.Font("Calibri Light", 0, 19)); // NOI18N
         tAlumnos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},

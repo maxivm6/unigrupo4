@@ -71,18 +71,18 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
             }
         });
 
-        jbAlta.setBackground(new java.awt.Color(51, 102, 255));
-        jbAlta.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jbAlta.setText("Alta");
+        jbAlta.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        jbAlta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\flechaverde.png")); // NOI18N
+        jbAlta.setText(" Alta");
         jbAlta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbAltaActionPerformed(evt);
             }
         });
 
-        jbBaja.setBackground(new java.awt.Color(51, 102, 255));
-        jbBaja.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jbBaja.setText("Baja");
+        jbBaja.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        jbBaja.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\flecharoja.png")); // NOI18N
+        jbBaja.setText(" Baja");
         jbBaja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBajaActionPerformed(evt);
@@ -111,10 +111,10 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
                                 .addGap(95, 95, 95)
                                 .addComponent(jtIdAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(126, 126, 126)
-                        .addComponent(jbAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(59, 59, 59)
-                        .addComponent(jbBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(157, 157, 157)
+                        .addComponent(jbAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jbBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -134,7 +134,7 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbBaja, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,8 +182,16 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
                       JOptionPane.showMessageDialog(this, "Alumno ya inscripto en esta materia");               
             }
             else {
+                if (al.buscarAlumno(idAlumno).getEstado()&&mat.buscarMateria(idMateria).getEstado()){   
                    nuevo.guardarCursada(cursada);
                    JOptionPane.showMessageDialog(this, "Alta realizada");
+                }
+                else if (!mat.buscarMateria(idMateria).getEstado()){
+                   JOptionPane.showMessageDialog(this, "Materia inactiva actualmente");     
+                }
+                else if (!al.buscarAlumno(idAlumno).getEstado()){
+                   JOptionPane.showMessageDialog(this, "Alumno inactivo actualmente");
+                }
             }
             
         }catch(NullPointerException e){}

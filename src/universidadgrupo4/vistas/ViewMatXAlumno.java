@@ -196,7 +196,7 @@ public void borrarFilasTabla(){
         jLabel7.setForeground(new java.awt.Color(51, 102, 255));
         jLabel7.setText("Consultas");
 
-        tMaterias.setFont(new java.awt.Font("Calibri Light", 0, 16)); // NOI18N
+        tMaterias.setFont(new java.awt.Font("Calibri Light", 0, 19)); // NOI18N
         tMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -210,6 +210,8 @@ public void borrarFilasTabla(){
         ));
         jScrollPane2.setViewportView(tMaterias);
 
+        jtBuscar.setFont(new java.awt.Font("Calibri Light", 0, 24)); // NOI18N
+        jtBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Maxi\\Desktop\\ULP\\LAB I\\lupa2.png")); // NOI18N
         jtBuscar.setText("Buscar");
         jtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -229,15 +231,15 @@ public void borrarFilasTabla(){
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(246, 246, 246))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(36, 36, 36)
                         .addComponent(jtId, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(42, 42, 42)
                         .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 179, 179))))
+                        .addGap(179, 179, 179))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(236, 236, 236))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 428, Short.MAX_VALUE)
@@ -251,21 +253,21 @@ public void borrarFilasTabla(){
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jtId)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(33, 33, 33)
+                .addGap(45, 45, 45)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 322, Short.MAX_VALUE)
+                    .addGap(0, 326, Short.MAX_VALUE)
                     .addComponent(jInternalFrame3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 322, Short.MAX_VALUE)))
+                    .addGap(0, 326, Short.MAX_VALUE)))
         );
 
         pack();
@@ -306,14 +308,8 @@ public void borrarFilasTabla(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<Alumno> cbAlumnos;
-    private javax.swing.JComboBox<Materia> cbMaterias;
-    private javax.swing.JComboBox<Materia> cbMaterias1;
     private javax.swing.JComboBox<Materia> cbMaterias2;
-    private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JInternalFrame jInternalFrame2;
     private javax.swing.JInternalFrame jInternalFrame3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

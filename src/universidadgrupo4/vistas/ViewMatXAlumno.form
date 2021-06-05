@@ -34,16 +34,16 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel7" min="-2" pref="278" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="246" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Component id="jtId" min="-2" pref="125" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Component id="jtBuscar" min="-2" pref="142" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="179" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel7" min="-2" pref="278" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -62,27 +62,27 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel7" min="-2" pref="78" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel6" max="32767" attributes="0"/>
                           <Component id="jtId" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jtBuscar" min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="322" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
                   <Component id="jInternalFrame3" min="-2" pref="0" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="322" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="326" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -256,7 +256,7 @@
         <Component class="javax.swing.JTable" name="tMaterias">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Calibri Light" size="16" style="0"/>
+              <Font name="Calibri Light" size="19" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="4" rowCount="4">
@@ -274,6 +274,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="jtBuscar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri Light" size="24" style="0"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="2" name="C:\Users\Maxi\Desktop\ULP\LAB I\lupa2.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
       <Events>
