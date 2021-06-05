@@ -69,6 +69,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
 
         jbBuscar.setBackground(new java.awt.Color(51, 102, 255));
         jbBuscar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/buscar.png"))); // NOI18N
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +78,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         jbGuardar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salvar.png"))); // NOI18N
         jbGuardar.setText("Guardar");
         jbGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,6 +87,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         jbBorrar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         jbBorrar.setText("Borrar");
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +96,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         jbSalir.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,6 +105,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         });
 
         jbActualizar.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recargar.png"))); // NOI18N
         jbActualizar.setText("Actualizar");
         jbActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,17 +149,17 @@ public class ViewMateria extends javax.swing.JInternalFrame {
                             .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 47, Short.MAX_VALUE)
-                .addComponent(jbNuevo)
-                .addGap(26, 26, 26)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jbNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jbGuardar)
                 .addGap(18, 18, 18)
                 .addComponent(jbActualizar)
-                .addGap(32, 32, 32)
-                .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(jbSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addGap(18, 18, 18)
+                .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jbSalir)
+                .addGap(25, 25, 25))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,6 +215,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
             val=true;
         } catch (NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Campo incorrecto"); 
+            limpiar();
         }
         
         try {
@@ -218,6 +224,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
             jtAño.setText(String.valueOf(mat.getAnio()));
         } catch (NullPointerException e){
             JOptionPane.showMessageDialog(this, "No se encuentra la materia");
+            limpiar();
         }
         
         
@@ -239,6 +246,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         
         if (nombre.isEmpty()||val==false){
            JOptionPane.showMessageDialog(this, "Campo incorrecto");  
+           limpiar();
         }
         else{
             materias = nuevo.obtenerMaterias();
@@ -246,10 +254,12 @@ public class ViewMateria extends javax.swing.JInternalFrame {
             
             if (materias.stream().anyMatch(a->a.getNombreMateria()==mat.getNombreMateria())){
                 JOptionPane.showMessageDialog(this, "Ya existe la materia en el sistema");
+                limpiar();
             }
             else{
                     nuevo.guardarMateria(mat);
                     JOptionPane.showMessageDialog(this, "Materia agregada");
+                    limpiar();
                 }                             
             }     
     }//GEN-LAST:event_jbGuardarActionPerformed
@@ -266,6 +276,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
             val=true;
         } catch (NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Campo incorrecto"); 
+            limpiar();
         }
         
         try {
@@ -277,10 +288,12 @@ public class ViewMateria extends javax.swing.JInternalFrame {
             if (opcion==0) {
                 nuevo.desactivarMateria(id);
                 JOptionPane.showMessageDialog(this, "Materia desactivada");
+                limpiar();
             }
             
         } catch (NullPointerException e){
             JOptionPane.showMessageDialog(this, "No se encuentra la materia");
+            limpiar();
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
 
@@ -298,10 +311,12 @@ public class ViewMateria extends javax.swing.JInternalFrame {
             val=true;
         } catch (NumberFormatException e){}
         if (nombre.isEmpty()||val==false){
-           JOptionPane.showMessageDialog(this, "Campo incorrecto");  
+           JOptionPane.showMessageDialog(this, "Campo incorrecto"); 
+           limpiar();
         }else{
             if (nuevo.buscarMateria(id)==null) {
                   JOptionPane.showMessageDialog(this, "No se encuentra la materia");
+                  limpiar();
             }else{
                 
                 Materia mat = new Materia(id,nombre,año,true);
@@ -310,6 +325,7 @@ public class ViewMateria extends javax.swing.JInternalFrame {
                     if (opcion==0) {
                         nuevo.actualizarMateria(mat, id);
                         JOptionPane.showMessageDialog(this, "Se ha modificado la materia");
+                        limpiar();
                     }
                 
             }
@@ -322,7 +338,12 @@ public class ViewMateria extends javax.swing.JInternalFrame {
        jtNombre.setText(null);
        jtId.requestFocus();
     }//GEN-LAST:event_jbNuevoActionPerformed
-
+    private void limpiar()
+    {
+        jtId.setText("");
+       jtAño.setText("");
+       jtNombre.setText(""); 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

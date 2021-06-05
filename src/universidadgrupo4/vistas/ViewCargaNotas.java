@@ -153,20 +153,24 @@ public class ViewCargaNotas extends javax.swing.JInternalFrame {
             val=true;
         } catch (NumberFormatException e){
             JOptionPane.showMessageDialog(this, "Campo incorrecto"); 
+            limpiar();
         }
         Cursada cur = new Cursada(nuevo.buscarAlumno(idAlumno),nuevo.buscarMateria(idMateria),nota);
         List<Cursada> arrCursada = nuevo.obtenerCursadas();
         try {
             if (nuevo.buscarMateria(idMateria)==null||nuevo.buscarAlumno(idAlumno)==null){
                 JOptionPane.showMessageDialog(this, "No se encuentra la materia o el alumno");
+                limpiar();
             }else{
                 for (Cursada item:arrCursada){
                     if(item.getAlumno().getIdAlumno()==idAlumno && item.getMateria().getIdMateria()==idMateria && nota <=10){
                         if(item.getNota()>nota){
                             JOptionPane.showMessageDialog(this, "La nota anterior es mayor");
+                            limpiar();
                         }else{
                             nuevo.actualizarNotaCursada(idAlumno, idMateria, nota);
                             JOptionPane.showMessageDialog(this, "Nota actualizada");
+                            limpiar();
                         }
                     }
                 }
@@ -174,9 +178,15 @@ public class ViewCargaNotas extends javax.swing.JInternalFrame {
             }
         }catch (NullPointerException e){
             JOptionPane.showMessageDialog(this, "No se encuentra la materia");
+            limpiar();
         }       
     }//GEN-LAST:event_jbCargarActionPerformed
-
+    public void limpiar()
+    {
+        jtIdMateria.setText("");
+       jtIdAlumno.setText("");
+       jtNota.setText(""); 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel3;
