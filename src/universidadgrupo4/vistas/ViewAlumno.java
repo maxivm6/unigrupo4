@@ -124,6 +124,9 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtFechaNacFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtFechaNacFocusLost(evt);
+            }
         });
 
         jtLegajo.setEditable(false);
@@ -365,6 +368,7 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
                         else{
                             nuevo.guardarAlumno(al);
                             JOptionPane.showMessageDialog(this, "Alumno agregado");
+                            limpiar();
                         }                             
                     }
             
@@ -533,6 +537,9 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jtNombreMouseClicked
 
     private void jtFechaNacFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtFechaNacFocusGained
+        if (jtFechaNac.getText().contains("dd/MM/yyyy")){
+            jtFechaNac.setText("");
+        }
         
     }//GEN-LAST:event_jtFechaNacFocusGained
 
@@ -548,6 +555,12 @@ public class ViewAlumno extends javax.swing.JInternalFrame {
        jtFechaNac.setBackground(Color.LIGHT_GRAY);
        jtLegajo.setBackground(Color.LIGHT_GRAY);
     }//GEN-LAST:event_jtIdMouseClicked
+
+    private void jtFechaNacFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtFechaNacFocusLost
+       if (jtFechaNac.getText().isEmpty()){
+           jtFechaNac.setText("dd/MM/yyyy");
+       }
+    }//GEN-LAST:event_jtFechaNacFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

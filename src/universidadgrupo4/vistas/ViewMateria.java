@@ -8,9 +8,11 @@ package universidadgrupo4.vistas;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import universidadgrupo4.control.CursadaData;
 import universidadgrupo4.control.MateriaData;
 import universidadgrupo4.modelos.Alumno;
 import universidadgrupo4.modelos.Conexion;
+import universidadgrupo4.modelos.Cursada;
 import universidadgrupo4.modelos.Materia;
 import static universidadgrupo4.vistas.ViewAlumno.validarString;
 
@@ -346,7 +348,9 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         String nombre = null;
         boolean val=false;
         MateriaData nuevo = new MateriaData(con);
-        boolean estado = false; 
+        boolean estado = false;
+        CursadaData cd = new CursadaData(con);
+        ArrayList<Cursada> cursadas = (ArrayList<Cursada>) cd.obtenerCursadas();
         
         
         if(chActivo.isSelected()){
@@ -367,10 +371,11 @@ public class ViewMateria extends javax.swing.JInternalFrame {
         }else{
             if (nuevo.buscarMateria(id)==null) {
                   JOptionPane.showMessageDialog(this, "No se encuentra la materia con ID: "+id);
-                  limpiar();
+                  limpiar();      
+                  
             }else{
                 
-                Materia mat = new Materia(id,nombre,año,estado);
+                Materia mat = new Materia(id,nombre,año,estado);            
                 int opcion = JOptionPane.showConfirmDialog(this, "Esta seguro que desea modificar:\n " 
                 + nuevo.buscarMateria(id).toString(), "ATENCION", 2, JOptionPane.WARNING_MESSAGE);
                     if (opcion==0) {
@@ -378,9 +383,9 @@ public class ViewMateria extends javax.swing.JInternalFrame {
                         JOptionPane.showMessageDialog(this, "Se ha modificado la materia");
                         limpiar();
                     }
-                
+                }
             }
-        }
+        
     }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void jtAñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtAñoActionPerformed

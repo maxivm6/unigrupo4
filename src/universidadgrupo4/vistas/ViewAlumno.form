@@ -264,6 +264,7 @@
       </AccessibilityProperties>
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtFechaNacFocusGained"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtFechaNacFocusLost"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtLegajo">
