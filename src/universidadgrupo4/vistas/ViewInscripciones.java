@@ -200,9 +200,7 @@ public class ViewInscripciones extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "ID alumno y materia deben ser numeros enteros. ");
             jtIdAlumno.setText(null);
             jtIdMateria.setText(null);
-        }
-            
-        
+        }                    
     }//GEN-LAST:event_jbAltaActionPerformed
 
     private void jbBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBajaActionPerformed
